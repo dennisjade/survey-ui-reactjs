@@ -1,0 +1,32 @@
+{
+  "name": "nextbillion-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^2.13.4",
+    "axios": "^0.16.2",
+    "bootstrap": "^3.3.7",
+    "chart.js": "^1.1.1",
+    "fusioncharts": "^3.12.1",
+    "material-ui": "^0.19.3",
+    "moment": "^2.18.1",
+    "muicss": "^0.9.27",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
+    "react-chartjs": "^0.8.0",
+    "react-dazzle": "^1.2.7",
+    "react-dom": "^16.0.0",
+    "react-fusioncharts": "^1.0.4",
+    "react-scripts": "1.0.14",
+    "recharts": "^1.0.0-apha.5",
+    "victory": "^0.23.1",
+    "zingchart": "^2.6.1",
+    "zingchart-react": "^1.0.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

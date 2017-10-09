@@ -1,0 +1,26 @@
+.ant-layout{
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.ant-layout:hover {
+    color: #1890ff;
+}
+
+.ant-layout .ant-layout-sider .logo {
+    height: 40px;
+    background: lightgrey;
+    margin: 16px;
+}
+
+.ant-layout .headerTitle {
+    float: right;
+    margin-right: 10px;
+}
+
+#btn-search {
+    margin-left: 10px;
+}
