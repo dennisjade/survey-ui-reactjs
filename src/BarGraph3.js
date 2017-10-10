@@ -69,7 +69,7 @@ export class PostSurveyBarGraph extends Component {
   };
 
   getAgentsBySubmittedDate() {
-    let url = 'http://localhost:10010/survey/submitted';
+    let url = 'http://34.235.89.110:10010/survey/submitted';
     axios.get(url, {
       params: {
         dateStart: this.state.startDate,
