@@ -1,51 +1,16 @@
 import React, { Component } from 'react';
 import {core as ZingChart} from 'zingchart-react';
 import axios from 'axios';
-import { DatePicker, message } from 'antd';
+import { DatePicker, message, Form } from 'antd';
 import moment from 'moment';
 import { Button } from 'antd';
 
 const { RangePicker } = DatePicker;
 const dateFormat = 'YYYY-MM-DD';
-const DatePickerConfig = {
-  "lang": {
-    "placeholder": "Select date",
-    "rangePlaceholder": [
-      "Start date",
-      "End date"
-    ],
-    "today": "Today",
-    "now": "Now",
-    "backToToday": "Back to today",
-    "ok": "Ok",
-    "clear": "Clear",
-    "month": "Month",
-    "year": "Year",
-    "timeSelect": "Select time",
-    "dateSelect": "Select date",
-    "monthSelect": "Choose a month",
-    "yearSelect": "Choose a year",
-    "decadeSelect": "Choose a decade",
-    "yearFormat": "YYYY",
-    "dateFormat": "YYYY-MM-DD",
-    "dayFormat": "D",
-    "dateTimeFormat": "YYYY-MM-DD HH:mm:ss",
-    "monthFormat": "MMMM",
-    "monthBeforeYear": true,
-    "previousMonth": "Previous month (PageUp)",
-    "nextMonth": "Next month (PageDown)",
-    "previousYear": "Last year (Control + left)",
-    "nextYear": "Next year (Control + right)",
-    "previousDecade": "Last decade",
-    "nextDecade": "Next decade",
-    "previousCentury": "Last century",
-    "nextCentury": "Next century"
-  },
-  "timePickerLocale": {
-    "placeholder": "Select time"
-  }
+const FormItem = Form.Item;
+const formItemLayout = {
+  labelCol: { span: 3 }
 };
-moment.locale('en-US');
 
 function messagePopUp(type) {
   switch (type){
@@ -71,8 +36,8 @@ export class PostSurveyBarGraph extends Component {
       agentBySubmittedDate: {
         type: 'hbar',
         title:{
-          "text":"Post-survey submitted",
-          "adjust-layout":true
+          text:"Post-survey submitted",
+          fontSize: "12px"
         },
         plot: {
           stacked: true,
@@ -96,7 +61,7 @@ export class PostSurveyBarGraph extends Component {
           {
             values: [],
             backgroundColor: '#FF6600',
-            text: 'Agents'
+            text: 'Number of Survey'
           }
         ]
       }
@@ -122,8 +87,8 @@ export class PostSurveyBarGraph extends Component {
           agentBySubmittedDate: {
             type: 'hbar',
             title:{
-              "text":"Post-survey submitted",
-              "adjust-layout":true
+              text:"Post-survey submitted",
+              fontSize: "12px"
             },
             plot: {
               tooltip: {
@@ -151,7 +116,7 @@ export class PostSurveyBarGraph extends Component {
               {
                 values: ret.data.values,
                 backgroundColor: '#FF6600',
-                text: 'Number of Agents'
+                text: 'Number of Survey'
               }
             ]
           }
@@ -174,8 +139,12 @@ export class PostSurveyBarGraph extends Component {
   render() {
     return (
       <div>
-        <RangePicker onChange={this.handleChangeStartDate} locale={DatePickerConfig} />
-        <Button id='btn-search' type="primary" shape="circle" icon="search" onClick={this.handleClick}/>
+        <Form>
+          <FormItem {...formItemLayout} label="Submitted date">
+            <RangePicker onChange={this.handleChangeStartDate} defaultValue={moment('2015-11-01')}/>
+            <Button id='btn-search' type="primary" shape="circle" icon="search" onClick={this.handleClick}/>
+          </FormItem>
+        </Form>
         <ZingChart id="chart1"  legend="true" data={this.state.agentBySubmittedDate} />
       </div>
     );

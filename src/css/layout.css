@@ -19,6 +19,7 @@
 .ant-layout .headerTitle {
     float: right;
     margin-right: 10px;
+    color: grey;
 }
 
 #btn-search {

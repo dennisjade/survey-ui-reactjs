@@ -8,7 +8,7 @@
     "bootstrap": "^3.3.7",
     "chart.js": "^1.1.1",
     "fusioncharts": "^3.12.1",
-    "material-ui": "^0.19.3",
+    "material-ui": "^0.19.4",
     "moment": "^2.18.1",
     "muicss": "^0.9.27",
     "react": "^16.0.0",

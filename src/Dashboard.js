@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
-// import Dashboard from 'react-dazzle';
-// import Container from './Container';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import BarGraph from './BarGraph';
-// import DoughnutChart from  './widgets/DoughnutChart';
-// import CustomFrame from './CustomFrame';
-// import {Grid, Row, Col, Clearfix} from 'react-bootstrap';
-// import Container from 'muicss/lib/react/container';
-// import Row from 'muicss/lib/react/row';
-// import Col from 'muicss/lib/react/col';
 import MyContent from './Content';
 import logo from './images/nextbillion-logo.png';
-// import { Row, Col } from 'antd';
+import logo40 from './images/nextbillion-logo40.png';
 import './App.css';
 import './css/layout.css';
 import { Layout, Menu, Icon } from 'antd';
@@ -22,14 +12,16 @@ export class SiderDemo extends Component {
     super(props);
     this.state = {
       selectedMenu: 1,
-      collapsed: false
-    }
+      collapsed: false,
+      logoImg: logo
+    };
     this.handleSelectMenu = this.handleSelectMenu.bind(this);
   }
 
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
+      logoImg: !this.state.collapsed?logo40:logo
     });
   };
 
@@ -49,7 +41,7 @@ export class SiderDemo extends Component {
           collapsed={this.state.collapsed}
         >
           <div className="logo" >
-            <img alt="NextBillion" src={logo} height={40}/>
+            <img alt="NextBillion" src={this.state.logoImg} height={40} />
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onSelect={this.handleSelectMenu}>
             <Menu.Item key="1">
