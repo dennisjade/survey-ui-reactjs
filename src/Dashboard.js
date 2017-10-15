@@ -60,6 +60,10 @@ export class SiderDemo extends Component {
               <Icon type="question" />
               <span>Survey Questions</span>
             </Menu.Item>
+            <Menu.Item key="5">
+              <Icon type="question" />
+              <span>Agent Location</span>
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout>

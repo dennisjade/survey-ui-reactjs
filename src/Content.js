@@ -3,6 +3,7 @@ import {AgentBarGraph} from './BarGraph';
 import {PreSurveyBarGraph} from './BarGraph2';
 import {PostSurveyBarGraph} from './BarGraph3';
 import SurveyQuestionsGraph from './SurveyQuestionGraph';
+import AgentLocation from './AgentLocation';
 
 class MyContent extends Component {
 
@@ -24,6 +25,10 @@ class MyContent extends Component {
       case '4':
         return (
           <SurveyQuestionsGraph />
+        );
+      case '5':
+        return (
+          <AgentLocation />
         );
       default:
         return (
