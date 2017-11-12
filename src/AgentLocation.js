@@ -1,31 +1,14 @@
 import React, {Component} from 'react';
-// import GoogleMapReact from 'google-map-react';
-//
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
-//
-// class AgentLocation extends Component {
-//
-//   render() {
-//     return (
-//       <GoogleMapReact
-//         bootstrapURLKeys={{
-//           key: "AIzaSyBPRhlMSHm3DI-wlqR3fH-a_6yrxb-cUG0"
-//         }}
-//         defaultCenter={[59.95, 30.33]}
-//         defaultZoom={11}
-//       >
-//         <div
-//           lat={59.955413}
-//           lng={30.337844}
-//         >A</div>
-//       </GoogleMapReact>
-//     );
-//   }
-// }
-
 import { compose, withProps } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
+import { Form, Button, Select, DatePicker } from 'antd';
+import moment from 'moment';
+const { RangePicker } = DatePicker;
+const FormItem = Form.Item;
+const formItemLayout = {
+  labelCol: { span: 3 }
+};
 
 const MyMapComponent = compose(
   withProps({
@@ -52,12 +35,43 @@ const MyMapComponent = compose(
 
     </MarkerClusterer>
   </GoogleMap>
-)
+);
 
 class AgentLocation extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      marker: []
+    }
+  }
+
+  populate() {
+
+  }
+
   render() {
     return (
-      <MyMapComponent />
+      <div>
+        <Form>
+          <FormItem {...formItemLayout} label="Question">
+            <Select
+              showSearch={true}
+              optionFilterProp="children"
+              placeholder="Select an agent"
+              onChange={this.handleSelect}
+              style={{width:"600px"}}
+              labelInValue={true}
+            >
+
+            </Select>
+          </FormItem>
+          <FormItem {...formItemLayout} label="Response date">
+            <RangePicker onChange={this.handleChangeStartDate} defaultValue={moment('2015-11-01')}/>
+            <Button id='btn-search' type="primary" shape="circle" icon="search" onClick={this.handleClick}/>
+          </FormItem>
+        </Form>
+        <MyMapComponent />
+      </div>
     );
   }
 }
