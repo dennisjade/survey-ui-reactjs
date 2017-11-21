@@ -58,7 +58,7 @@ class SurveyQuestionsGraph extends Component {
     if (!this.state.q){
       return messagePopUp('noquestion');
     }
-    let url = 'http://34.235.89.110:10010/survey/question';
+    let url = process.env.REACT_APP_BASE_URL + '/survey/question';
     let params = {
       dateStart: this.state.startDate,
       dateEnd: this.state.endDate,

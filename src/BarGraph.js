@@ -68,7 +68,7 @@ export class AgentBarGraph extends Component {
   };
 
   getAgentsBySubmittedDate() {
-    let url = 'http://34.235.89.110:10010/agents/submitted/survey';
+    let url = process.env.REACT_APP_BASE_URL + '/agents/submitted/survey';
     axios.get(url, {
       params: {
         dateStart: this.state.startDate,
